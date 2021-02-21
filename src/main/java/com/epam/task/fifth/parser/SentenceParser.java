@@ -6,7 +6,7 @@ import com.epam.task.fifth.entity.Composite;
 import java.util.Arrays;
 
 public class SentenceParser extends AbstractParser {
-    private final static String SPLITTER = " ";
+    private final static String SPLITTER = "[,]? ";
 
     public SentenceParser(Parser successor) {
         super(successor);
