@@ -13,15 +13,14 @@ public class Composite implements Component {
     }
 
     public Composite() {
-
     }
 
     public void add(Component component) {
         children.add(component);
     }
 
-    public void removeChild(Component component) {
-        children.remove(component);
+    public List<Component> get() {
+        return children;
     }
 
     @Override
@@ -32,19 +31,17 @@ public class Composite implements Component {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-
         Composite composite = (Composite) o;
-
-        return Objects.equals(children, composite.children);
+        return children.equals(composite.children);
     }
 
     @Override
     public int hashCode() {
-        return children != null ? children.hashCode() : 0;
+        return Objects.hash(children);
     }
 
     @Override
-    public void print() {
-
+    public String toString() {
+        return String.valueOf(children);
     }
 }

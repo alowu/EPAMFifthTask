@@ -3,6 +3,7 @@ package com.epam.task.fifth.parser;
 import com.epam.task.fifth.entity.Component;
 import com.epam.task.fifth.entity.Composite;
 import com.epam.task.fifth.entity.Leaf;
+import com.epam.task.fifth.entity.LeafType;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -23,12 +24,12 @@ public class ParagraphParserTest {
     public void testParseShouldParseParagraphsToSentences() {
         //given
         Component first = new Composite(Arrays.asList(
-                new Leaf("Hello"),
-                new Leaf("world")
+                new Leaf("Hello", LeafType.WORD),
+                new Leaf("world", LeafType.WORD)
         ));
         Component second = new Composite(Arrays.asList(
-                new Leaf("I'm"),
-                new Leaf("here")
+                new Leaf("I'm", LeafType.WORD),
+                new Leaf("here", LeafType.WORD)
         ));
         Component expected = new Composite(Arrays.asList(first, second));
 

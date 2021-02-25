@@ -1,15 +1,23 @@
 package com.epam.task.fifth.entity;
 
+import java.util.Objects;
+
 public class Leaf implements Component{
 
     private String lexeme;
+    private LeafType type;
 
-    public Leaf(String lexeme) {
+    public Leaf(String lexeme, LeafType type) {
         this.lexeme = lexeme;
+        this.type = type;
     }
 
     public String getLexeme() {
         return lexeme;
+    }
+
+    public LeafType getType() {
+        return type;
     }
 
     @Override
@@ -20,19 +28,17 @@ public class Leaf implements Component{
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-
         Leaf leaf = (Leaf) o;
-
-        return getLexeme() != null ? getLexeme().equals(leaf.getLexeme()) : leaf.getLexeme() == null;
+        return getLexeme().equals(leaf.getLexeme()) && getType() == leaf.getType();
     }
 
     @Override
     public int hashCode() {
-        return getLexeme() != null ? getLexeme().hashCode() : 0;
+        return Objects.hash(getLexeme(), getType());
     }
 
     @Override
-    public void print() {
-
+    public String toString() {
+        return lexeme;
     }
 }

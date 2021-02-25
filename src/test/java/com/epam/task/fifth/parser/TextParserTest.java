@@ -3,6 +3,7 @@ package com.epam.task.fifth.parser;
 import com.epam.task.fifth.entity.Component;
 import com.epam.task.fifth.entity.Composite;
 import com.epam.task.fifth.entity.Leaf;
+import com.epam.task.fifth.entity.LeafType;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -26,15 +27,15 @@ public class TextParserTest {
         //given
         Component first = new Composite(Collections.singletonList(
                 new Composite(Arrays.asList(
-                        new Leaf("Hello"),
-                        new Leaf("World")
+                        new Leaf("Hello", LeafType.WORD),
+                        new Leaf("World", LeafType.WORD)
                 ))
         ));
 
         Component second = new Composite(Collections.singletonList(
                 new Composite(Arrays.asList(
-                        new Leaf("I'm"),
-                        new Leaf("Here")
+                        new Leaf("I'm", LeafType.WORD),
+                        new Leaf("Here", LeafType.WORD)
                 ))
         ));
 
